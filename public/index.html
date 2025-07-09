@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Massanger</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/10090/10090303.png">
+</head>
+<body>
+  <div id="auth-container">
+    <div class="auth-box">
+      <div id="signup-box" style="display:none;">
+        <h2>Sign Up</h2>
+        <input type="text" id="signup-name" placeholder="Name" required>
+        <input type="email" id="signup-email" placeholder="Email" required>
+        <input type="password" id="signup-password" placeholder="Password" required>
+        <button id="signup-otp-btn" type="button">Send OTP</button>
+        <input type="text" id="signup-otp" placeholder="Enter OTP" style="display:none;">
+        <button id="signup-btn" style="display:none;">Sign Up</button>
+        <p>Already have an account? <span id="show-login">Login here</span></p>
+        <div class="error" id="signup-error"></div>
+      </div>
+      <div id="login-box">
+        <h2>Login</h2>
+        <input type="text" id="login-name" placeholder="Email" required>
+        <input type="password" id="login-password" placeholder="Password" required>
+        <button id="login-otp-btn" type="button">Send OTP</button>
+        <input type="text" id="login-otp" placeholder="Enter OTP" style="display:none;">
+        <button id="login-btn" style="display:none;">Login</button>
+        <p>Don't have an account? <span id="show-signup">Sign up here</span></p>
+        <div class="error" id="login-error"></div>
+        <button id="show-forgot" type="button" style="color:#2563eb;background:none;border:none;cursor:pointer;text-decoration:underline;margin-top:8px;">Forgot Password?</button>
+      </div>
+      <div id="forgot-box" style="display:none;">
+        <h2>Reset Password</h2>
+        <input type="text" id="forgot-email" placeholder="Email" required>
+        <button id="forgot-otp-btn">Send OTP</button>
+        <input type="text" id="forgot-otp" placeholder="Enter OTP" style="display:none;">
+        <input type="password" id="forgot-new-password" placeholder="New Password" style="display:none;">
+        <button id="forgot-reset-btn" style="display:none;">Reset Password</button>
+        <div class="error" id="forgot-error"></div>
+        <p><span id="show-login2" style="color:#2563eb;cursor:pointer;">Back to Login</span></p>
+      </div>
+    </div>
+  </div>
+  <div id="chat-container" style="display:none;">
+    <header class="app-header">
+      <h1>Massanger</h1>
+      <div class="user-actions">
+        <span id="profile-avatar" class="profile-avatar"></span>
+        <div id="profile-menu" class="profile-menu" style="display:none;"></div>
+      </div>
+    </header>
+    <div id="user-list-box">
+      <h3>Users</h3>
+      <div class="wa-search-bar" style="margin-bottom:10px;">
+        <input type="text" id="user-search" placeholder="Search by name or email..." autocomplete="off">
+      </div>
+      <ul id="user-list"></ul>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
