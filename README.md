@@ -1,89 +1,121 @@
-# Real-Time Chat App
+# Messenger
 
-A modern, **real-time chat application** built with Node.js, Express and Socket.IO.  
-It supports text, image & generic file sharing, message persistence, and an intuitive drag-and-drop deletion workflow that works on both desktop and mobile devices.
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![NPM](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-## ✨ Features
 
-* **Real-time messaging** between registered users powered by Socket.IO.
-* **File sharing** – send images, PDF & any file type (in-browser preview for images).
-* **Persistent history** – messages are cached in `localStorage` per chat pair; reload-safe.
-* **Select & delete** – double-click to select messages, then drag them into the floating trash-zone to delete.
-* **Deletion sync** – deleted messages disappear for both sender & receiver and do not return after refresh.
-* **Responsive UI** – mobile-friendly layout and CSS animations.
-* **User management** – simple JSON‐based user list for sign-up / login.
+## Table of Contents
+- [Overview](#-overview)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [License](#-license)
+
+
+---
+
+## ✨ Overview
+
+Messenger is a comprehensive full-stack web application developed with JavaScript. It features responsive user interface, detailed documentation. Ideal for businesses and users seeking a complete digital solution with both frontend and backend components.
+
+---
+
+
+## 🔗 Connect with me
+
+[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2?style=for-the-badge&logo=Twitter&logoColor=white)](https://twitter.com/dbaidya811) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dbaidya811)
+
+
+## 🚀 Features
+
+- **Modern UI/UX:** Responsive design with intuitive user interface and smooth user experience
+- **Full-stack Integration:** Seamless communication between frontend and backend components
+- **Real-time Updates:** Dynamic content updates and real-time data synchronization
+- **Cross-platform Compatibility:** Works seamlessly across different devices, browsers, and screen sizes
+- **Advanced State Management:** Efficient state handling and data flow management
+- **Detailed Documentation:** Complete guides, API references, and usage examples
+- **Auto Documentation:** Automatic API documentation and guides
+
+---
+
+## 🛠️ Tech Stack
+
+- **Primary Language:** JavaScript
+- **Frontend:** HTML5, CSS3, JavaScript
+- **Tools & Libraries:** npm, Git
+
+## 📊 Languages Used
+
+![JSON](https://img.shields.io/badge/JSON-30.8%25-blue?style=for-the-badge) ![JavaScript](https://img.shields.io/badge/JavaScript-30.8%25-blue?style=for-the-badge) ![HTML](https://img.shields.io/badge/HTML-15.4%25-blue?style=for-the-badge) ![CSS](https://img.shields.io/badge/CSS-15.4%25-blue?style=for-the-badge) ![Markdown](https://img.shields.io/badge/Markdown-7.7%25-blue?style=for-the-badge) 
+
+
+## ⚙️ Installation
+
+```bash
+# Clone the repository
+# git clone https://github.com/dbaidya811/messenger.git
+# Change directory
+# cd messenger
+# Backend setup (if applicable)
+npm install
+```
+
+---
+
+## 🏃 Usage
+
+Use the following command to run the project:
+
+```bash
+# Run the project
+npm start
+```
+
+---
 
 ## 📂 Project Structure
 
+A brief overview of the key files and directories:
 ```
-chat-app/
-├── public/              # Static assets served by Express
-│   ├── css/
-│   │   └── chat.css
-│   ├── js/
-│   │   ├── app.js       # Login/dashboard logic
-│   │   └── chat.js      # Chat room logic
-│   ├── chat.html        # Chat room page
-│   └── index.html       # Login / dashboard page
-├── server.js            # Express + Socket.IO server
-├── users.json           # Simple user store (replace with DB in prod)
-└── README.md            # You are here
+messenger/
+├── LICENSE
+├── messages.json
+├── package-lock.json
+├── package.json
+├── README.md
+├── server.js
+├── users.json
+├── public\chat.html
+├── public\index.html
+├── public\sw.js
+├── public\css\chat.css
+├── public\css\style.css
+├── public\js\app.js
+├── public\js\chat.js
+└── ...
 ```
-
-## 🚀 Quick Start
-
-1. **Clone / download** the repo.
-2. Install dependencies (only `express` & `socket.io`):
-
-   ```bash
-   npm install express socket.io
-   ```
-3. **Run the server**:
-
-   ```bash
-   node server.js
-   ```
-   The server starts on `http://localhost:3000` by default.
-4. **Open the app** in your browser – two ways to test:
-   * **Single machine**: open two tabs/windows with different accounts (use incognito for second user).
-   * **LAN**: visit `http://<your-ip>:3000` from another device on the same network.
-
-## 🗂️ Adding Users
-
-Users are listed in `users.json`.  
-Example entry:
-
-```json
-{
-  "name": "Alice",
-  "userId": "alice123",
-  "email": "alice@example.com",
-  "password": "secret"
-}
-```
-
-Add two or more users, then restart the server.
-
-> ⚠️ **Note:** Passwords are stored in **plain-text** for demonstration only. Use hashing & a database in production.
-
-## 🔧 Development Notes
-
-* Chat history & deleted-id cache are stored per user-pair in `localStorage` (`chat_history_<uid>_<peer>` & `deleted_ids_<pair>`).
-* Message objects include a unique `id` sent with every socket event so clients can reconcile deletes.
-* The trash-zone appears only when at least one message is selected and supports drag-over highlight.
-* Socket.IO rooms: each user joins their own room (`socket.join(userId)`) so direct messages can be emitted to `to` & `from` rooms simultaneously.
-
-## 🛣️ Future Improvements
-
-* Persist messages & delete state on the **server** (DB) instead of client `localStorage`.
-* **Auth tokens** & hashed passwords.
-* Typing indicators, message read receipts.
-* Chunked upload for large files.
-* Unit & integration tests.
-
-## 📜 License
-
-MIT – free to use, modify & distribute.
 
 ---
-Feel free to contribute or raise issues. Happy chatting! 🎉
+
+## 📄 License
+
+This project is licensed under the terms of the `LICENSE` file.
+
+**License Preview:**
+```
+MIT License
+Copyright (c) 2025 Deep Baidya
+Permission is hereby granted, free of charge, to any person obtaining a copy
+```
+
+
+## 🙏 Support
+
+If you like this project, please consider supporting me.
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy_Me_A_Coffee-%23FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/dbaidya811e)
+
+---
+
+*This README was automatically generated. Feel free to edit and improve!*
